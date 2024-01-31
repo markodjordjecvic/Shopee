@@ -1,8 +1,8 @@
-const { OrderModel } = require('../models/orderModel');
-const { CartonModel } =  require('../models/cartonModels');
-const { parcelModel } = require('../models/parcelModel');
-const { PreAlertModel } = require('../models/preAlertModel');
-const jwt = require("jsonwebtoken");
+const OrderModel = require('../models/orderModel');
+const CartonModel =  require('../models/cartonModels');
+const parcelModel = require('../models/parcelModel');
+const PreAlertModel = require('../models/preAlertModel');
+const wt = require("jsonwebtoken");
 
 const hashDecode = (token) => {
     const secretKey = "password";
@@ -13,6 +13,9 @@ const hashDecode = (token) => {
 const createOrder = async (req, res) => {
     const hasedObject = hashDecode(req.body.data);
     const { order, parcel_list } = hasedObject.data;
+
+    console.log(order);
+    console.log(parcel_list);
     let next_carrier_info = "";
     let pre_carrier_info = "";
     const { 
