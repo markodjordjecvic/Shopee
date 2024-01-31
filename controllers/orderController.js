@@ -1,7 +1,7 @@
-const OrderModel = require('../models/orderModel');
-const CartonModel =  require('../models/cartonModels');
-const parcelModel = require('../models/parcelModel');
-const PreAlertModel = require('../models/preAlertModel');
+const { OrderModel } = require('../models/orderModel');
+const { CartonModel } =  require('../models/cartonModels');
+const { parcelModel } = require('../models/parcelModel');
+const { PreAlertModel } = require('../models/preAlertModel');
 const jwt = require("jsonwebtoken");
 
 const hashDecode = (token) => {

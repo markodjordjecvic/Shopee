@@ -1,7 +1,7 @@
-const cartonModels = require("../models/cartonModels");
-const CartonModel = require("../models/cartonModels");
-const OrderModel = require("../models/orderModel");
-const parcelModel = require("../models/parcelModel");
+const{ cartonModels } = require("../models/cartonModels");
+const { CartonModel } = require("../models/cartonModels");
+const { OrderModel  }= require("../models/orderModel");
+const { parcelModel } = require("../models/parcelModel");
 
 const jwt = require("jsonwebtoken");
 

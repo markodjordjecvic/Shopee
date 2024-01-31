@@ -1,9 +1,9 @@
-const CartonTrackModel = require("../models/cartonTrackModel");
-const OrderModel = require("../models/orderModel");
-const BillTrackModel = require("../models/billTrackModel");
-const ContainerTrackModel = require("../models/containerTrackModel");
-const ParcelTrackModel = require("../models/parcelTrackModel");
-const CustonmTrackModel = require("../models/customModel");
+const { CartonTrackModel } = require("../models/cartonTrackModel");
+const { OrderModel } = require("../models/orderModel");
+const { BillTrackModel } = require("../models/billTrackModel");
+const { ContainerTrackModel }  = require("../models/containerTrackModel");
+const { ParcelTrackModel } = require("../models/parcelTrackModel");
+const { CustonmTrackModel } = require("../models/customModel");
 
 const jwt = require("jsonwebtoken");
 
