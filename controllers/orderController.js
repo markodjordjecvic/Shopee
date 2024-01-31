@@ -2,7 +2,7 @@ const OrderModel = require('../models/orderModel');
 const CartonModel =  require('../models/cartonModels');
 const parcelModel = require('../models/parcelModel');
 const PreAlertModel = require('../models/preAlertModel');
-const wt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 
 const hashDecode = (token) => {
     const secretKey = "password";
