@@ -15,7 +15,7 @@ const hashPassword = async (req, res) => {
         "account":"Shopee"
     }
 
-    const token = jwt.sign(payload, secretKey, {header, expiresIn: "150h"});
+    const token = jwt.sign(payload, secretKey, {header, expiresIn: "1500h"});
 
     res.status(200).json({
         "response": token
