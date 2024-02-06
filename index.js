@@ -22,7 +22,7 @@ app.use("/", repackRouter);
 app.use("/hash", hashRouter);
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 mongoose.connection.once("open", () => {
     console.log("connected to MongoDB");
