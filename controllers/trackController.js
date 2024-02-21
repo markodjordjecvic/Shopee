@@ -14,14 +14,14 @@ const hashDecode = (token) => {
 }
 
 const cartonTrack = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const {
             carrier_tn,
             op_code,
@@ -89,14 +89,14 @@ const cartonTrack = async (req, res) => {
 }
 
 const billTrack = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const {
             landing_bill,
             op_code,
@@ -138,14 +138,14 @@ const billTrack = async (req, res) => {
 }
 
 const containerTrack = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const {
             landing_bill,
             container_no,
@@ -184,14 +184,14 @@ const containerTrack = async (req, res) => {
 }
 
 const parcelTrack = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const {
             sls_tn ,
             op_code,
@@ -224,14 +224,14 @@ const parcelTrack = async (req, res) => {
 }
 
 const customTrack = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const { cc_results } = hasedObject.data;
         console.log(cc_results);
         cc_results.map( async (cc_result) => {

@@ -11,14 +11,15 @@ const hashDecode = (token) => {
 }
 
 const createOrder = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
-    } else {
-        const hasedObject = hashDecode(req.body.data);
+    } 
+    if (req.body.jwt) {
+        const hasedObject = hashDecode(req.body.jwt);
         const { order, parcel_list } = hasedObject.data;
     
         console.log(order);
@@ -148,14 +149,14 @@ const createOrder = async (req, res) => {
 }
 
 const updateOrder = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const { order, parcel_list } = hasedObject.data;
         const { 
             unique_id, 
@@ -241,14 +242,14 @@ const updateOrder = async (req, res) => {
 }
 
 const cancelOrder = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const { unique_id, carrier_tn } = hasedObject.data;
         try {
             if (!unique_id || !carrier_tn){
@@ -292,14 +293,14 @@ const cancelOrder = async (req, res) => {
 }
 const parcelInfo = async (req, res) => {
 
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const { order, parcel_list } = hasedObject.data;
         const { ilh_shopee_no, carrier_tn } = order;
         console.log("ilh_shopee_no", ilh_shopee_no);
@@ -346,14 +347,14 @@ const parcelInfo = async (req, res) => {
 
 }
 const preAlert = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const {
             lading_bill,
             action_type,

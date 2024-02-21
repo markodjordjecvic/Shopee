@@ -12,14 +12,14 @@ const hashDecode = (token) => {
 }
 
 const repackCreate = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const { carton_no,
                 carton_weight, 
                 carton_length,
@@ -79,14 +79,14 @@ const repackCreate = async (req, res) => {
 }
 
 const repackUpdate = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const {
             carrier_tn,
             carton_no,
@@ -185,14 +185,14 @@ const repackUpdate = async (req, res) => {
 }
 
 const repackCancel = async (req, res) => {
-    if(req.body.data == undefined || req.body.data == null){
+    if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
             "retcode": -1200012,
             "message": "please check the jwt parameters",
             "data": ""
         });
     } else {
-        const hasedObject = hashDecode(req.body.data);
+        const hasedObject = hashDecode(req.body.jwt);
         const {
             carrier_tn,
             carton_no,
