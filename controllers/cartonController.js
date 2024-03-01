@@ -32,7 +32,7 @@ const repackCreate = async (req, res) => {
             if(!carton_no || !carton_weight) {
                 return res.status(400).json({
                     "retcode": -1200012,
-                    "message": "please check the field",
+                    "message": "please check the carton_no and carton_weight field",
                     "data": ""
                 });
             };
@@ -100,18 +100,52 @@ const repackUpdate = async (req, res) => {
             parcel_list
         } = hasedObject.data;
     
-        try {
-            if(
-                !carrier_tn ||
-                !carton_no ||
-                !ilh_shopee_no ||
-                !destination_region ||
-                !carton_weight ||
-                !parcel_list
-            ){
+        try {            
+
+            if(!carrier_tn) {
                 return res.status(400).json({
                     "retcode": -1200012,
-                    "message": "please check the field",
+                    "message": "please check the carrier_tn field",
+                    "data": ""
+                })
+            }
+
+            if(!carton_no) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the carton_no field",
+                    "data": ""
+                })
+            }
+
+            if(!ilh_shopee_no) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the ilh_shopee_no field",
+                    "data": ""
+                })
+            }
+
+            if(!destination_region) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the destination_region field",
+                    "data": ""
+                })
+            }
+
+            if(!carton_weight) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the carton_weight field",
+                    "data": ""
+                })
+            }
+
+            if(!parcel_list) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the parcel_list field",
                     "data": ""
                 })
             }
@@ -199,15 +233,44 @@ const repackCancel = async (req, res) => {
             ilh_shopee_no,
             destination_region,
             reason_code
-        } = hasedObject;
-        if (!carrier_tn ||
-            !carton_no ||
-            !ilh_shopee_no ||
-            !destination_region ||
-            !reason_code) {
+        } = hasedObject;      
+
+        if(!carrier_tn){
             return res.status(400).json({
                 "retcode": -1203004,
-                "message": "Please check input field",
+                "message": "Please check the carrier_tn field",
+                "data": ""
+            });
+        }
+
+        if(!carton_no){
+            return res.status(400).json({
+                "retcode": -1203004,
+                "message": "Please check the carton_no field",
+                "data": ""
+            });
+        }
+
+        if(!ilh_shopee_no){
+            return res.status(400).json({
+                "retcode": -1203004,
+                "message": "Please check the ilh_shopee_no field",
+                "data": ""
+            });
+        }
+
+        if(!destination_region){
+            return res.status(400).json({
+                "retcode": -1203004,
+                "message": "Please check the destination_region field",
+                "data": ""
+            });
+        }
+
+        if(!reason_code){
+            return res.status(400).json({
+                "retcode": -1203004,
+                "message": "Please check the reason_code field",
                 "data": ""
             });
         }

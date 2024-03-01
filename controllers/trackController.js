@@ -38,20 +38,63 @@ const cartonTrack = async (req, res) => {
             reason_description
         } = hasedObject.data;
     
-        try {
-            if( !carrier_tn ||
-                !op_code ||
-                !update_time ||
-                !op_location ||
-                !op_location_code ||
-                !transport_type ||
-                !etd ||
-                !eta){
-                    return res.status(400).json({
-                        "retcode": -1200012,
-                        "message": "Please check input field"
-                    })
-                }
+        try {            
+            if(!carrier_tn) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the carrier_tn field"
+                })
+            }
+
+            if(!op_code) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the op_code field"
+                })
+            }
+
+            if(!update_time) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the update_time field"
+                })
+            }
+
+            if(!op_location) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the op_location field"
+                })
+            }
+
+            if(!op_location_code) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the op_location_code field"
+                })
+            }
+
+            if(!transport_type) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the transport_type field"
+                })
+            }
+
+            if(!etd) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the etd field"
+                })
+            }
+
+            if(!eta) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the eta field"
+                })
+            }
+
             const findOrder = await OrderModel.findOne({"carrier_tn": carrier_tn});
             if(!findOrder) {
                 return res.status(400).json({
@@ -108,18 +151,60 @@ const billTrack = async (req, res) => {
             eta
         } = hasedObject.data;
         try {
-            if( !landing_bill ||
-                !op_code ||
-                !update_time ||
-                !op_location ||
-                !op_location_code ||
-                !transport_type ||
-                !etd ||
-                !eta){
-                    return res.status(400).json({
-                        "retcode": -1200012,
-                        "message": "Please check input field"
-                    })
+            if(!landing_bill) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the landing_bill field"
+                })
+            }
+
+            if(!op_code) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the op_code field"
+                })
+            }
+
+            if(!update_time) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the update_time field"
+                })
+            }
+
+            if(!op_location) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the op_location field"
+                })
+            }
+
+            if(!op_location_code) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the op_location_code field"
+                })
+            }
+
+            if(!transport_type) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the transport_type field"
+                })
+            }
+
+            if(!etd) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the etd field"
+                })
+            }
+
+            if(!eta) {
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "Please check the eta field"
+                })
             }
             const newBillTrackInfo = new BillTrackModel(req.body);
             await newBillTrackInfo.save();
@@ -157,22 +242,69 @@ const containerTrack = async (req, res) => {
             etd,
             eta
         } = hasedObject.data;
-    
-        if (!landing_bill ||
-            !container_no ||
-            !op_code ||
-            !update_time ||
-            !op_location ||
-            !op_location_code ||
-            !transport_type ||
-            !etd ||
-            !eta) {
+
+        if(!landing_bill) {
             res.status(400).json({
                 "retcode": -1200012,
-                "message": "Please check input value."
+                "message": "Please check the landing_bill value."
+            });
+        }
+
+        if(!container_no) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the container_no value."
+            });
+        }
+
+        if(!op_code) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the op_code value."
             });
         }
     
+        if(!update_time) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the update_time value."
+            });
+        }
+
+        if(!op_location) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the op_location value."
+            });
+        }
+
+        if(!op_location_code) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the op_location_code value."
+            });
+        }
+
+        if(!transport_type) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the transport_type value."
+            });
+        }
+
+        if(!etd) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the etd value."
+            });
+        }
+
+        if(!eta) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the eta value."
+            });
+        }
         const newContainerTrack = new ContainerTrackModel(req.body);
         newContainerTrack.save();
         res.status(200).json({
@@ -201,15 +333,45 @@ const parcelTrack = async (req, res) => {
             op_location_code,
         } = hasedObject.data;
     
-        if (!sls_tn ||
-            !op_code ||
-            !op_time ||
-            !time_zone ||
-            !transport_type ||
-            !op_location_code) {
+        if(!sls_tn) {
             res.status(400).json({
                 "retcode": -1200012,
-                "message": "Please check input value."
+                "message": "Please check the sls_tn field."
+            });
+        }
+
+        if(!op_code) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the op_code field."
+            });
+        }
+
+        if(!op_time) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the op_time field."
+            });
+        }
+
+        if(!time_zone) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the time_zone field."
+            });
+        }
+
+        if(!transport_type) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the transport_type field."
+            });
+        }
+
+        if(!op_location_code) {
+            res.status(400).json({
+                "retcode": -1200012,
+                "message": "Please check the op_location_code field."
             });
         }
     
@@ -242,17 +404,41 @@ const customTrack = async (req, res) => {
                 op_location,
                 event_code
             } = cc_result;
-            try {
-                if( !reference_no ||
-                    !clear_type ||
-                    !op_time ||
-                    !op_location ||
-                    !event_code) {
-                        return res.status(400).json({
-                            "retcode": -1200012,
-                            "message": "Please check input field"
-                        });
-                    }
+            try {                
+                if(!clear_type) {
+                    return res.status(400).json({
+                        "retcode": -1200012,
+                        "message": "Please check the clear_type field"
+                    });
+                }
+
+                if(!reference_no) {
+                    return res.status(400).json({
+                        "retcode": -1200012,
+                        "message": "Please check the reference_no field"
+                    });
+                }
+
+                if(!op_time) {
+                    return res.status(400).json({
+                        "retcode": -1200012,
+                        "message": "Please check the op_time field"
+                    });
+                }
+
+                if(!op_location) {
+                    return res.status(400).json({
+                        "retcode": -1200012,
+                        "message": "Please check the op_location field"
+                    });
+                }
+
+                if(!event_code) {
+                    return res.status(400).json({
+                        "retcode": -1200012,
+                        "message": "Please check the event_code field"
+                    });
+                }
                 const findOrder = await OrderModel.findOne({"parcel_list": reference_no});
                 if(!findOrder) {
                     return res.status(400).json({

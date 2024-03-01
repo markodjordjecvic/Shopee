@@ -45,34 +45,109 @@ const createOrder = async (req, res) => {
                 receiver,
                 parcel_qty } = order;
     
-        try {
-            if( !unique_id || 
-                !ilh_shopee_no || 
-                !carton_no || 
-                !carton_weight || 
-                !goods_type || 
-                !service_code || 
-                !transport_type || 
-                !destination_region || 
-                !destination_region_name || 
-                !sender || 
-                !receiver || 
-                !parcel_qty ||
-                !carton_no ||
-                !carton_weight )  {
+        try {           
+
+            if(!unique_id){
                 return res.status(400).json({
                     "retcode": -1200012,
-                    "message": "please check the field",
+                    "message": "please check the unique_id field",
+                    "data": ""
+                });
+            }
+            if(!ilh_shopee_no){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the ilh_shopee_no field",
+                    "data": ""
+                });
+            }
+
+            if(!carton_no){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the carton_no field",
+                    "data": ""
+                });
+            }
+
+            if(!carton_weight){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the carton_weight field",
+                    "data": ""
+                });
+            }
+
+            if(!goods_type){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the goods_type field",
+                    "data": ""
+                });
+            }
+
+            if(!service_code){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the service_code field",
+                    "data": ""
+                });
+            }
+
+            if(!transport_type){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the transport_type field",
+                    "data": ""
+                });
+            }
+
+            if(!destination_region){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the destination_region field",
                     "data": ""
                 });
             }
             
+            if(!destination_region_name){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the destination_region_name field",
+                    "data": ""
+                });
+            }
+
+            if(!sender){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the sender field",
+                    "data": ""
+                });
+            }
+
+            if(!receiver){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the receiver field",
+                    "data": ""
+                });
+            }
+
+            if(!parcel_qty){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the parcel_qty field",
+                    "data": ""
+                });
+            }
+
             if (order.pre_carrier_info) {
                 let { carrier_code, carrier_name } = order.pre_carrier_info;
                 if(!carrier_code || !carrier_name){
                     return res.status(400).json({
                         "retcode": -1200012,
-                        "message": "please check the field",
+                        "message": "please check the carrier_code and carrier_name field",
                         "data": ""
                     });
                 }
@@ -84,7 +159,7 @@ const createOrder = async (req, res) => {
                 if(!carrier_code || !carrier_name) {
                     return res.status(400).json({
                         "retcode": -1200012,
-                        "message": "please check the field",
+                        "message": "please check the carrier_code and carrier_name field",
                         "data": ""
                     });
                 }
@@ -175,23 +250,76 @@ const updateOrder = async (req, res) => {
             receiver,
             parcel_qty } = order;
         try {
-            if( !unique_id || 
-                !ilh_shopee_no || 
-                !carrier_tn || 
-                !carton_weight || 
-                !goods_type || 
-                !service_code || 
-                !sender || 
-                !receiver || 
-                !parcel_qty ||
-                !carton_weight )  {
+            if(!unique_id){
                 return res.status(400).json({
                     "retcode": -1200012,
-                    "message": "please check the field",
+                    "message": "please check the unique_id field",
                     "data": ""
                 });
             }
-    
+
+            if(!ilh_shopee_no){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the ilh_shopee_no field",
+                    "data": ""
+                });
+            }
+
+            if(!carrier_tn){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the carrier_tn field",
+                    "data": ""
+                });
+            }
+
+            if(!carton_weight){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the carton_weight field",
+                    "data": ""
+                });
+            }
+
+            if(!goods_type){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the goods_type field",
+                    "data": ""
+                });
+            }
+
+            if(!service_code){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the service_code field",
+                    "data": ""
+                });
+            }
+
+            if(!sender){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the sender field",
+                    "data": ""
+                });
+            }
+            if(!receiver){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the receiver field",
+                    "data": ""
+                });
+            }
+
+            if(!parcel_qty){
+                return res.status(400).json({
+                    "retcode": -1200012,
+                    "message": "please check the parcel_qty field",
+                    "data": ""
+                });
+            }
             const renewOrder =  await OrderModel.findOne({"unique_id": unique_id});
             if(!renewOrder){
                 return res.status(400).json({
@@ -255,7 +383,7 @@ const cancelOrder = async (req, res) => {
             if (!unique_id || !carrier_tn){
                 return res.status(400).json({
                     "retcode": -1200012,
-                    "message": "please check the field",
+                    "message": "please check the unique_id and carrier_tn field",
                 });
             }
            
@@ -372,24 +500,97 @@ const preAlert = async (req, res) => {
         } = hasedObject.data;
     
         try {
-            if( !lading_bill ||
-                !action_type ||
-                !departure_location ||
-                !arrival_location ||
-                !lading_bill_vol_weight ||
-                !lading_bill_chargeable_weight ||
-                !lading_bill_sequence ||
-                !lading_bill_total_number ||
-                !eta ||
-                !etd ||
-                !transport_company_name ||
-                !vessel_no ||
-                !carton_list){
-                    return res.status(400).json({
-                        "retcode": "-1200012",
-                        "message": "Please check input field"
-                    });
-                }
+
+            if(!lading_bill){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the lading_bill field"
+                });
+            }
+
+            if(!action_type){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the action_type field"
+                });
+            }
+
+            if(!departure_location){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the departure_location field"
+                });
+            }
+            if(!arrival_location){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the arrival_location field"
+                });
+            }
+
+            if(!lading_bill_vol_weight){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the lading_bill_vol_weight field"
+                });
+            }
+
+            if(!lading_bill_chargeable_weight){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the lading_bill_chargeable_weight field"
+                });
+            }
+
+            if(!lading_bill_sequence){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the lading_bill_sequence field"
+                });
+            }
+
+            if(!lading_bill_total_number){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the lading_bill_total_number field"
+                });
+            }
+
+            if(!eta){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the eta field"
+                });
+            }
+
+            if(!etd){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the etd field"
+                });
+            }
+
+            if(!transport_company_name){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the transport_company_name field"
+                });
+            }
+
+            if(!vessel_no){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the vessel_no field"
+                });
+            }
+
+            if(!carton_list){
+                return res.status(400).json({
+                    "retcode": "-1200012",
+                    "message": "Please check the carton_list field"
+                });
+            }
+
             const newPreAlert = new PreAlertModel(req.body);
             await newPreAlert.save();
             res.status(200).json({
