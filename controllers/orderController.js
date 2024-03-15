@@ -283,7 +283,8 @@ const updateOrder = async (req, res) => {
                 });
             }
 
-            if(!goods_type){
+            if(!goods_type && goods_type !== 0){
+                console.log("goods_type:", goods_type);
                 return res.status(400).json({
                     "retcode": -1200012,
                     "message": "please check the goods_type field",
