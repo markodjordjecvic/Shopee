@@ -16,7 +16,7 @@ const hashDecode = (token) => {
 const cartonTrack = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -41,56 +41,56 @@ const cartonTrack = async (req, res) => {
         try {            
             if(!carrier_tn) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the carrier_tn field"
                 })
             }
 
             if(!op_code) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the op_code field"
                 })
             }
 
             if(!update_time) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the update_time field"
                 })
             }
 
             if(!op_location) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the op_location field"
                 })
             }
 
             if(!op_location_code) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the op_location_code field"
                 })
             }
 
             if(!transport_type) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the transport_type field"
                 })
             }
 
             if(!etd) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the etd field"
                 })
             }
 
             if(!eta) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the eta field"
                 })
             }
@@ -134,7 +134,7 @@ const cartonTrack = async (req, res) => {
 const billTrack = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -153,56 +153,56 @@ const billTrack = async (req, res) => {
         try {
             if(!landing_bill) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the landing_bill field"
                 })
             }
 
             if(!op_code) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the op_code field"
                 })
             }
 
             if(!update_time) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the update_time field"
                 })
             }
 
             if(!op_location) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the op_location field"
                 })
             }
 
             if(!op_location_code) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the op_location_code field"
                 })
             }
 
             if(!transport_type) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the transport_type field"
                 })
             }
 
             if(!etd) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the etd field"
                 })
             }
 
             if(!eta) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "Please check the eta field"
                 })
             }
@@ -225,7 +225,7 @@ const billTrack = async (req, res) => {
 const containerTrack = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -245,63 +245,63 @@ const containerTrack = async (req, res) => {
 
         if(!landing_bill) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the landing_bill value."
             });
         }
 
         if(!container_no) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the container_no value."
             });
         }
 
         if(!op_code) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the op_code value."
             });
         }
     
         if(!update_time) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the update_time value."
             });
         }
 
         if(!op_location) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the op_location value."
             });
         }
 
         if(!op_location_code) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the op_location_code value."
             });
         }
 
         if(!transport_type) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the transport_type value."
             });
         }
 
         if(!etd) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the etd value."
             });
         }
 
         if(!eta) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the eta value."
             });
         }
@@ -318,7 +318,7 @@ const containerTrack = async (req, res) => {
 const parcelTrack = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -335,42 +335,42 @@ const parcelTrack = async (req, res) => {
     
         if(!sls_tn) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the sls_tn field."
             });
         }
 
         if(!op_code) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the op_code field."
             });
         }
 
         if(!op_time) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the op_time field."
             });
         }
 
         if(!time_zone) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the time_zone field."
             });
         }
 
         if(!transport_type) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the transport_type field."
             });
         }
 
         if(!op_location_code) {
             res.status(400).json({
-                "retcode": -1200012,
+                "retcode": 1,
                 "message": "Please check the op_location_code field."
             });
         }
@@ -388,7 +388,7 @@ const parcelTrack = async (req, res) => {
 const customTrack = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -407,35 +407,35 @@ const customTrack = async (req, res) => {
             try {                
                 if(!clear_type) {
                     return res.status(400).json({
-                        "retcode": -1200012,
+                        "retcode": 1,
                         "message": "Please check the clear_type field"
                     });
                 }
 
                 if(!reference_no) {
                     return res.status(400).json({
-                        "retcode": -1200012,
+                        "retcode": 1,
                         "message": "Please check the reference_no field"
                     });
                 }
 
                 if(!op_time) {
                     return res.status(400).json({
-                        "retcode": -1200012,
+                        "retcode": 1,
                         "message": "Please check the op_time field"
                     });
                 }
 
                 if(!op_location) {
                     return res.status(400).json({
-                        "retcode": -1200012,
+                        "retcode": 1,
                         "message": "Please check the op_location field"
                     });
                 }
 
                 if(!event_code) {
                     return res.status(400).json({
-                        "retcode": -1200012,
+                        "retcode": 1,
                         "message": "Please check the event_code field"
                     });
                 }

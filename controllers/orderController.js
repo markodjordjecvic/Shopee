@@ -13,7 +13,7 @@ const hashDecode = (token) => {
 const createOrder = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -49,14 +49,14 @@ const createOrder = async (req, res) => {
 
             if(!unique_id){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the unique_id field",
                     "data": ""
                 });
             }
             if(!ilh_shopee_no){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the ilh_shopee_no field",
                     "data": ""
                 });
@@ -64,7 +64,7 @@ const createOrder = async (req, res) => {
 
             if(!carton_no){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the carton_no field",
                     "data": ""
                 });
@@ -72,7 +72,7 @@ const createOrder = async (req, res) => {
 
             if(!carton_weight){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the carton_weight field",
                     "data": ""
                 });
@@ -81,7 +81,7 @@ const createOrder = async (req, res) => {
             if(!goods_type && goods_type !== 0){
                 console.log("goods_type:", goods_type);
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the goods_type field",
                     "data": ""
                 });
@@ -89,7 +89,7 @@ const createOrder = async (req, res) => {
 
             if(!service_code){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the service_code field",
                     "data": ""
                 });
@@ -97,7 +97,7 @@ const createOrder = async (req, res) => {
 
             if(!transport_type){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the transport_type field",
                     "data": ""
                 });
@@ -105,7 +105,7 @@ const createOrder = async (req, res) => {
 
             if(!destination_region){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the destination_region field",
                     "data": ""
                 });
@@ -113,7 +113,7 @@ const createOrder = async (req, res) => {
             
             if(!destination_region_name){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the destination_region_name field",
                     "data": ""
                 });
@@ -121,7 +121,7 @@ const createOrder = async (req, res) => {
 
             if(!sender){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the sender field",
                     "data": ""
                 });
@@ -129,7 +129,7 @@ const createOrder = async (req, res) => {
 
             if(!receiver){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": -1,
                     "message": "please check the receiver field",
                     "data": ""
                 });
@@ -137,7 +137,7 @@ const createOrder = async (req, res) => {
 
             if(!parcel_qty){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the parcel_qty field",
                     "data": ""
                 });
@@ -147,7 +147,7 @@ const createOrder = async (req, res) => {
                 let { carrier_code, carrier_name } = order.pre_carrier_info;
                 if(!carrier_code || !carrier_name){
                     return res.status(400).json({
-                        "retcode": -1200012,
+                        "retcode": 1,
                         "message": "please check the carrier_code and carrier_name field",
                         "data": ""
                     });
@@ -159,7 +159,7 @@ const createOrder = async (req, res) => {
                 let { carrier_code, carrier_name } = order.next_carrier_info;
                 if(!carrier_code || !carrier_name) {
                     return res.status(400).json({
-                        "retcode": -1200012,
+                        "retcode": 1,
                         "message": "please check the carrier_code and carrier_name field",
                         "data": ""
                     });
@@ -170,7 +170,7 @@ const createOrder = async (req, res) => {
                     const duplicate = await OrderModel.findOne({"unique_id": unique_id});
                     if (duplicate){
                         return res.status(400).json({
-                            "retcode": -1200012,
+                            "retcode": 1,
                             "message": "Duplicated order id",
                             "data": ""
                         });
@@ -227,7 +227,7 @@ const createOrder = async (req, res) => {
 const updateOrder = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -253,7 +253,7 @@ const updateOrder = async (req, res) => {
         try {
             if(!unique_id){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the unique_id field",
                     "data": ""
                 });
@@ -261,7 +261,7 @@ const updateOrder = async (req, res) => {
 
             if(!ilh_shopee_no){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the ilh_shopee_no field",
                     "data": ""
                 });
@@ -269,7 +269,7 @@ const updateOrder = async (req, res) => {
 
             if(!carrier_tn){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the carrier_tn field",
                     "data": ""
                 });
@@ -277,7 +277,7 @@ const updateOrder = async (req, res) => {
 
             if(!carton_weight){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the carton_weight field",
                     "data": ""
                 });
@@ -286,7 +286,7 @@ const updateOrder = async (req, res) => {
             if(!goods_type && goods_type !== 0){
                 console.log("goods_type:", goods_type);
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the goods_type field",
                     "data": ""
                 });
@@ -294,7 +294,7 @@ const updateOrder = async (req, res) => {
 
             if(!service_code){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the service_code field",
                     "data": ""
                 });
@@ -302,14 +302,14 @@ const updateOrder = async (req, res) => {
 
             if(!sender){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the sender field",
                     "data": ""
                 });
             }
             if(!receiver){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the receiver field",
                     "data": ""
                 });
@@ -317,7 +317,7 @@ const updateOrder = async (req, res) => {
 
             if(!parcel_qty){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the parcel_qty field",
                     "data": ""
                 });
@@ -333,7 +333,7 @@ const updateOrder = async (req, res) => {
                 CartonModel.populate(renewOrder, { path: 'carton_id'}, (err, populatedOrder) => {
                     if(err){
                         return res.status(400).json({
-                            "retcode": -1200012,
+                            "retcode": 1,
                             "message": err
                         })
                     } else {
@@ -374,7 +374,7 @@ const updateOrder = async (req, res) => {
 const cancelOrder = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -384,7 +384,7 @@ const cancelOrder = async (req, res) => {
         try {
             if (!unique_id || !carrier_tn){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the unique_id and carrier_tn field",
                 });
             }
@@ -392,7 +392,7 @@ const cancelOrder = async (req, res) => {
            OrderModel.findOne({"unique_id": unique_id}, (err, order) => {
             if(!order){
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": `There is no order with ${unique_id} id`
                 })
             } else {
@@ -425,7 +425,7 @@ const parcelInfo = async (req, res) => {
 
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -479,7 +479,7 @@ const parcelInfo = async (req, res) => {
 const preAlert = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -505,90 +505,90 @@ const preAlert = async (req, res) => {
 
             if(!lading_bill){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the lading_bill field"
                 });
             }
 
             if(!action_type){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the action_type field"
                 });
             }
 
             if(!departure_location){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the departure_location field"
                 });
             }
             if(!arrival_location){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the arrival_location field"
                 });
             }
 
             if(!lading_bill_vol_weight){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the lading_bill_vol_weight field"
                 });
             }
 
             if(!lading_bill_chargeable_weight){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the lading_bill_chargeable_weight field"
                 });
             }
 
             if(!lading_bill_sequence){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the lading_bill_sequence field"
                 });
             }
 
             if(!lading_bill_total_number){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the lading_bill_total_number field"
                 });
             }
 
             if(!eta){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the eta field"
                 });
             }
 
             if(!etd){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the etd field"
                 });
             }
 
             if(!transport_company_name){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the transport_company_name field"
                 });
             }
 
             if(!vessel_no){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the vessel_no field"
                 });
             }
 
             if(!carton_list){
                 return res.status(400).json({
-                    "retcode": "-1200012",
+                    "retcode": "1",
                     "message": "Please check the carton_list field"
                 });
             }

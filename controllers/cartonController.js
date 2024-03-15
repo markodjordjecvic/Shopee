@@ -14,7 +14,7 @@ const hashDecode = (token) => {
 const repackCreate = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -31,7 +31,7 @@ const repackCreate = async (req, res) => {
         try {
             if(!carton_no || !carton_weight) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the carton_no and carton_weight field",
                     "data": ""
                 });
@@ -81,7 +81,7 @@ const repackCreate = async (req, res) => {
 const repackUpdate = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
@@ -104,7 +104,7 @@ const repackUpdate = async (req, res) => {
 
             if(!carrier_tn) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the carrier_tn field",
                     "data": ""
                 })
@@ -112,7 +112,7 @@ const repackUpdate = async (req, res) => {
 
             if(!carton_no) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the carton_no field",
                     "data": ""
                 })
@@ -120,7 +120,7 @@ const repackUpdate = async (req, res) => {
 
             if(!ilh_shopee_no) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the ilh_shopee_no field",
                     "data": ""
                 })
@@ -128,7 +128,7 @@ const repackUpdate = async (req, res) => {
 
             if(!destination_region) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the destination_region field",
                     "data": ""
                 })
@@ -136,7 +136,7 @@ const repackUpdate = async (req, res) => {
 
             if(!carton_weight) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the carton_weight field",
                     "data": ""
                 })
@@ -144,7 +144,7 @@ const repackUpdate = async (req, res) => {
 
             if(!parcel_list) {
                 return res.status(400).json({
-                    "retcode": -1200012,
+                    "retcode": 1,
                     "message": "please check the parcel_list field",
                     "data": ""
                 })
@@ -154,7 +154,7 @@ const repackUpdate = async (req, res) => {
                 parcel_list.map((parcle) => {
                     if(!parcle.reference_no || !parcle.action_type){
                         return res.status(400).json({
-                            "retcode": -1200012,
+                            "retcode": 1,
                             "message": "please check parcel no and bind status",
                             "data": ""
                         });
@@ -174,7 +174,7 @@ const repackUpdate = async (req, res) => {
                     console.log(populatedOrder);
                     if(err){
                         return res.status(400).json({
-                            "retcode": -1200012,
+                            "retcode": 1,
                             "message": err
                         })
                     } else {
@@ -221,7 +221,7 @@ const repackUpdate = async (req, res) => {
 const repackCancel = async (req, res) => {
     if(req.body.jwt == undefined || req.body.jwt == null){
         return res.status(400).json({
-            "retcode": -1200012,
+            "retcode": 1,
             "message": "please check the jwt parameters",
             "data": ""
         });
