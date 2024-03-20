@@ -394,6 +394,7 @@ const customTrack = async (req, res) => {
         });
     } else {
         const hasedObject = hashDecode(req.body.jwt);
+        console.log(hasedObject);
         const { cc_results } = hasedObject.data;
         console.log(cc_results);
         cc_results.map( async (cc_result) => {
@@ -442,7 +443,7 @@ const customTrack = async (req, res) => {
                 const findOrder = await OrderModel.findOne({"parcel_list": reference_no});
                 if(!findOrder) {
                     return res.status(400).json({
-                        "retcode": -1200013,
+                        "retcode": 1,
                         "message": `There is no parcel with ${reference_no}`
                     });
             
@@ -451,11 +452,12 @@ const customTrack = async (req, res) => {
                 await newCustom.save();
                 res.status(200).json({
                     "retcode": 0,
-                    "message": "Successed!"
+                    "message": "",
+                    "data": {}
                 })
             } catch (error) {
                 res.status(500).json({
-                    "retcode": -1200013,
+                    "retcode": 1,
                     "message":error
                 })
             } 

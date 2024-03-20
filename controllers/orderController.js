@@ -461,14 +461,14 @@ const parcelInfo = async (req, res) => {
                 }
                 if(flag == 0) {
                    return res.status(400).json({
-                    "retcode": -1200013,
+                    "retcode": 1,
                     "message": `There is no parcel with ${parcel.reference_no} in this order` 
                     })
                 }
             })
         } catch(error) {
             res.status(500).json({
-                "retcode": -1200013,
+                "retcode": 1,
                 "message": error
             })
         }
