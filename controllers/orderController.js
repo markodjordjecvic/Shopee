@@ -485,6 +485,7 @@ const preAlert = async (req, res) => {
         });
     } else {
         const hasedObject = hashDecode(req.body.jwt);
+        console.log(hasedObject.data.carton_list);
         const {
             lading_bill,
             action_type,
@@ -593,8 +594,9 @@ const preAlert = async (req, res) => {
                 });
             }
 
-            const newPreAlert = new PreAlertModel(req.body);
+            const newPreAlert = new PreAlertModel(hasedObject.data);
             await newPreAlert.save();
+            console.log(newPreAlert);
             res.status(200).json({
                 "retcode": 0,
                 "message": "Received pre-alert info!"
@@ -602,7 +604,7 @@ const preAlert = async (req, res) => {
     
         } catch (error) {
             res.status(500).json({
-                "retcode": -1200013,
+                "retcode": 1,
                 "message": error
             })
         }
